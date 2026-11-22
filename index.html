@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maaf Ya, Sayang...</title>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Quicksand', sans-serif; background: linear-gradient(180deg, #ffe0ec, #fff5f8, #ffeef5); min-height: 100vh; display: flex; flex-direction: column; align-items: center; color: #5a2a3a; overflow-x: hidden; }
+h1 { font-family: 'Dancing Script', cursive; font-size: 3rem; color: #e75480; }
+h2 { font-size: 2rem; color: #e75480; margin-bottom: 12px; }
+.page { display: none; width: 100%; min-height: 85vh; justify-content: center; align-items: center; padding: 20px; }
+.page.active { display: flex; animation: fadeIn .5s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+.card { background: white; width: 100%; max-width: 560px; padding: 32px 24px; border-radius: 28px; text-align: center; box-shadow: 0 15px 40px rgba(231,84,128,.18); border: 2px solid #ffd1e0; }
+.card.wide { max-width: 680px; }
+.emoji-big { font-size: 4rem; }
+.subtitle, p { line-height: 1.6; margin: 12px 0; font-size: 1.05rem; }
+.btn-pink, .btn-yes { background: #ff5e8a; color: white; border: none; padding: 14px 26px; border-radius: 999px; font-weight: 700; font-size: 1rem; cursor: pointer; margin-top: 16px; box-shadow: 0 8px 20px rgba(255,94,138,.35); }
+.btn-pink:hover, .btn-yes:hover { transform: scale(1.05); background: #ff4777; }
+.btn-no { background: #eee; color: #555; border: none; padding: 14px 22px; border-radius: 999px; font-weight: 700; cursor: pointer; position: relative; }
+.btn-area { display: flex; gap: 12px; justify-content: center; margin-top: 20px; position: relative; min-height: 60px; }
+.list-maaf { text-align: left; margin: 18px 0; display: flex; flex-direction: column; gap: 10px; }
+.item { background: #fff0f5; padding: 12px 14px; border-radius: 14px; border-left: 4px solid #ff8fab; }
+.note { background: #fff8e1; padding: 12px; border-radius: 14px; font-style: italic; }
+.gift-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 18px 0; }
+.gift { background: #fff0f5; padding: 20px 8px; border-radius: 20px; cursor: pointer; font-size: 2.5rem; border: 2px solid #ffd1e0; }
+.gift:hover { transform: translateY(-5px) scale(1.03); }
+.gift span { display: block; font-size: 1rem; font-weight: 700; margin-top: 6px; }
+.gift-detail { background: #ffeef5; padding: 16px; border-radius: 16px; min-height: 70px; font-weight: 600; }
+.final-msg { margin-top: 20px; font-size: 1.2rem; font-weight: 700; color: #e75480; line-height: 1.6; }
+.hearts-bg span { position: fixed; top: -20px; animation: jatuh linear infinite; z-index: 0; opacity: .7; }
+@keyframes jatuh { to { transform: translateY(110vh) rotate(360deg); } }
+footer { padding: 18px; font-size: .85rem; opacity: .7; text-align: center; }
+@media (max-width: 480px) { h1 { font-size: 2.3rem; } .gift-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="hearts-bg" id="heartsBg"></div>
+
+<!-- HALAMAN 1: PEMBUKA -->
+<section id="page1" class="page active">
+  <div class="card">
+    <div class="emoji-big">🥺💕</div>
+    <h1>Hai Sayang...</h1>
+    <p class="subtitle">Aku ada sesuatu buat kamu.<br>Klik dulu ya...</p>
+    <button class="btn-pink" onclick="goToPage(2)">Klik Aku Dulu Dong 💌</button>
+  </div>
+</section>
+<!-- HALAMAN 2: SURAT MAAF -->
+<section id="page2" class="page">
+  <div class="card wide">
+    <h2>Maaf Ya, Sayang...</h2>
+    <p>Aku tau aku belum bisa ngasih kamu banyak hal...</p>
+    <div class="list-maaf">
+      <div class="item">🌹 <b>Bunga</b> yang cantik buat kamu</div>
+      <div class="item">🧸 <b>Boneka</b> gemoy buat nemenin kamu tidur</div>
+      <div class="item">🎁 <b>Dan lain-lain</b> yang kamu mau, yang masih aku usahain</div>
+    </div>
+
+    <p class="note" style="text-align:left; line-height:1.7;">
+      Sayang, aku mau jujur ya...<br><br>
+      Bukan aku gak inisiatif, bukan aku gak mau berusaha buat kamu.<br>
+      Tapi jujur aja, ini baru pertama kalinya aku pacaran yang bener-bener serius kayak gini.<br><br>
+      Aku masih belajar gimana caranya jadi pacar yang baik, gimana caranya bikin kamu ngerasa disayang setiap hari, gimana caranya peka tanpa kamu harus minta dulu.<br><br>
+      Jadi kalau aku keliatan kaku, telat peka, atau kurang romantis, bukan karena aku gak sayang. Tapi karena aku masih belajar, dan aku belajarnya buat kamu.
+    </p>
+
+    <p class="note">Tapi sayangku ke kamu itu tulus banget. Aku lagi berusaha jadi lebih baik buat kamu, janji.</p>
+    <button class="btn-pink" onclick="goToPage(3)">Lanjut, Ada Hadiah Buat Kamu 🎁</button>
+  </div>
+</section>
+
+<!-- HALAMAN 3: HADIAH VIRTUAL -->
+<section id="page3" class="page">
+  <div class="card wide">
+    <h2>Klik Hadiahnya Satu-Satu Ya!</h2>
+    <div class="gift-grid">
+      <div class="gift" onclick="openGift('bunga')">🌹<span>Bunga</span></div>
+      <div class="gift" onclick="openGift('boneka')">🧸<span>Boneka</span></div>
+      <div class="gift" onclick="openGift('janji')">💍<span>Janji</span></div>
+    </div>
+    <div id="giftDetail" class="gift-detail">Pilih salah satu hadiah di atas dulu ya sayang...</div>
+    <button class="btn-pink" onclick="goToPage(4)">Terakhir Nih... 🥺</button>
+  </div>
+</section>
+<!-- HALAMAN 4: MAU MAAFIN GAK? -->
+<section id="page4" class="page">
+  <div class="card">
+    <div class="emoji-big">🥺👉👈</div>
+    <h1>Kamu maafin aku gak?</h1>
+    <p>Plis maafin ya, aku sayang banget sama kamu...</p>
+    <div class="btn-area" id="btnArea">
+      <button class="btn-yes" onclick="dimaafin()">Iya, Maafin 💕</button>
+      <button class="btn-no" id="btnNo" onmouseover="kabur()" onclick="kabur()">Enggak 🙄</button>
+    </div>
+    <div id="finalMsg" class="final-msg"></div>
+  </div>
+</section>
+
+<footer>Dibuat dengan sayang, dari cowokmu yang lagi minta maaf ❤️</footer>
+
+<script>
+function goToPage(num) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page' + num).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function openGift(type) {
+  const detail = document.getElementById('giftDetail');
+  if (type === 'bunga') {
+    detail.innerHTML = "🌹🌹🌹<br>Ini bunga virtual dulu ya sayang, nanti yang asli nyusul! Aku janji bakal beliin yang paling cantik buat kamu.";
+  } else if (type === 'boneka') {
+    detail.innerHTML = "🧸💕<br>Ini boneka buat nemenin kamu tidur kalau aku lagi gak ada. Peluk dia, anggap aja lagi peluk aku ya...";
+  } else if (type === 'janji') {
+    detail.innerHTML = "💍✨<br>Aku janji bakal berusaha lebih keras buat bahagiain kamu. Sabar ya, semua lagi aku usahain buat kamu.";
+  }
+  for (let i = 0; i < 12; i++) buatHati();
+}
+function kabur() {
+  const btn = document.getElementById('btnNo');
+  const x = Math.random() * 200 - 100;
+  const y = Math.random() * 80 - 40;
+  btn.style.transform = `translate(${x}px, ${y}px) scale(0.85)`;
+  btn.innerText = "Ehh gak kena 😝";
+  setTimeout(() => { btn.innerText = "Enggak 🙄"; }, 800);
+}
+function dimaafin() {
+  document.getElementById('finalMsg').innerHTML = "YEEY!! 🎉💕<br>Makasih sayang udah maafin aku!<br>Aku sayang banget sama kamu! I Love You! 😘❤️";
+  document.getElementById('btnNo').style.display = 'none';
+  for (let i = 0; i < 30; i++) setTimeout(buatHati, i * 80);
+}
+function buatHati() {
+  const hearts = ['💕','❤️','🌹','💖','🧸'];
+  const span = document.createElement('span');
+  span.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+  span.style.left = Math.random() * 100 + 'vw';
+  span.style.fontSize = (Math.random() * 20 + 16) + 'px';
+  span.style.animationDuration = (Math.random() * 3 + 3) + 's';
+  document.getElementById('heartsBg').appendChild(span);
+  setTimeout(() => span.remove(), 6000);
+}
+setInterval(buatHati, 800);
+</script>
+</body>
+</html>
